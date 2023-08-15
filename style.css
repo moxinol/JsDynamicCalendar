@@ -94,3 +94,42 @@ header .icons span:last-child {
 .days li.active::before{
     background: #9B59B6;
 }
+.todo-wrapper{
+    width: 450px;
+    background: #fff;
+    border-radius: 10px ;
+    margin-left: 10px;
+}
+
+.todo-wrapper .todos{
+    padding: 20px;
+}
+.todo-wrapper header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 30px 10px;
+}
+header .current-todos{
+    font-size: 1.45rem;
+    font-weight: 500;
+}
+header .add-todo span{
+    height: 38px;
+    width: 38px;
+    color: #878787;
+    font-size: 1.9rem;
+    margin: 0 1px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 38px;  
+    border-radius: 50%;
+}
+.todos .todo-list{
+    list-style: none;
+    
+}
+.todos .todo-list li{
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
