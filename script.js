@@ -22,7 +22,10 @@ const renderCalendar = () => {
     }
     
     for (let i = 1; i <= lastDateOfMonth; i++) {//creating li of all days of current month 
-        liTag += `<li>${i}</li>`;
+        //adding active class to li if  current day, month and year matched
+        let isToday = i === date.getDate() && currMonth === new Date().getMonth()
+        && currYear === new Date().getFullYear() ? "active" : "";
+        liTag += `<li class="${isToday}">${i}</li>`;
         
     }
 
@@ -39,6 +42,16 @@ prevNextIcon.forEach(icon => {
     icon.addEventListener("click", () => { //adding click event to both prev and next icons
         //decrement or icrement by 1 current month based on icon that was clicked
         currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
+
+        if(currMonth<0 || currMonth >11){// if current month is less than 0 or bigger tha 11
+            //creating a new date of current year and month  and pass it as date value
+            date = new Date(currYear,currMonth);
+            currYear = date.getFullYear();//updating current year with new date year
+            currMonth = date.getMonth();//updating current month with new date year
+            date = new Date();
+        }else{// else pass new date as date value
+            date = new Date();
+        }
         renderCalendar();
 
     });
